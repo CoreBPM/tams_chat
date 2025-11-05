@@ -90,14 +90,15 @@ export default class ChatInfo {
       body += `<span class="gname mr-1" name="gname">${this.roomname}</span>`;
       const checkemail = this.user_email;
       this.is_admin = await check_if_room_admin(this.room, checkemail);
-      if (this.chat_space.profile.is_removed != 1) {
-        if (this.is_admin == 1) {
-          body += `<span class="edit" style="cursor:pointer;">${frappe.utils.icon(
-            "edit",
-            "md"
-          )}</span>`;
-        }
-      }
+      // TODO: hide or remove this button "pen icon" for edit group name
+      // if (this.chat_space.profile.is_removed != 1) {
+      //   if (this.is_admin == 1) {
+      //     body += `<span class="edit" style="cursor:pointer;">${frappe.utils.icon(
+      //       "edit",
+      //       "md"
+      //     )}</span>`;
+      //   }
+      // }
 
       body += `
            
@@ -134,17 +135,9 @@ export default class ChatInfo {
   async setup_sections() {
     const me = this;
     const isClosed = (this.chat_status || this.chat_space.chat_status) === "Closed";
+    // TODO: hide or remove this button "Close Channel"
     const media_links_docs_section = `  
   <div class="p-4 chat-info-section openMedia"  style="cursor: pointer;">Media, links and docs</div>
-  <div class="p-4 chat-info-section" style="display:flex; justify-content:center;">
-  <button
-      class="btn btn-sm btn-danger close-channel"
-      ${isClosed ? "disabled" : ""}
-    >
-      ${isClosed ? "Closed" : "Close Channel"}
-  </button>
-</div>
-
   <div class=" chat-media" 
   style="position: absolute;
   top: 0;
@@ -200,17 +193,8 @@ export default class ChatInfo {
       const checkemail = this.user_email;
       if (this.chat_space.profile.is_removed != 1) {
         if (this.is_admin == 1) {
+          // TODO: hide or remove this button "Add members"
           group_sections += `
-        <div class="add_members-button d-flex flex-row justify-content-between">
-          <div class="add_members">${frappe.utils.icon(
-            "assign",
-            "md"
-          )} Add members</div>
-          <div class="close_members_lis">${frappe.utils.icon(
-            "close",
-            "md"
-          )}</div>
-       </div>
        <input type="text" placeholder="Search.." class="myInput filter-members" >
         <div class="list_members">
         </div>
@@ -297,20 +281,21 @@ export default class ChatInfo {
           }
         }
         group_sections += refernce_doctypes_section;
-        if(this.chat_space.profile.user_type == "system_user" || (this.chat_space.profile.user_type == "website_user" && !this.chat_space.profile.is_website_support_group)){
-          group_sections += `<div class="p-4 chat-info-section exit-group d-flex" >
-          <div style="display: flex;flex: none;justify-content: center;margin-right: 16px; color:#ea0038;">
-            <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve"><path fill="currentColor" d="M16.6,8.1l1.2-1.2l5.1,5.1l-5.1,5.1l-1.2-1.2l3-3H8.7v-1.8h10.9L16.6,8.1z M3.8,19.9h9.1 c1,0,1.8-0.8,1.8-1.8v-1.4h-1.8v1.4H3.8V5.8h9.1v1.4h1.8V5.8c0-1-0.8-1.8-1.8-1.8H3.8C2.8,4,2,4.8,2,5.8v12.4 C2,19.1,2.8,19.9,3.8,19.9z"></path></svg>
-          </div>
-          <div style="box-sizing: border-box;
-          display: flex;
-          flex: 1 1 auto;
-          align-items: center;
-          height: 100%;
-          overflow: hidden;padding-right: 30px; color:#ea0038;">Exit group</div>
-          </div>
-          `;
-        }
+        // TODO: hide or remove this button "Exit group"
+        // if(this.chat_space.profile.user_type == "system_user" || (this.chat_space.profile.user_type == "website_user" && !this.chat_space.profile.is_website_support_group)){
+        //   group_sections += `<div class="p-4 chat-info-section exit-group d-flex" >
+        //   <div style="display: flex;flex: none;justify-content: center;margin-right: 16px; color:#ea0038;">
+        //     <svg viewBox="0 0 24 24" height="24" width="24" preserveAspectRatio="xMidYMid meet" class="" version="1.1" x="0px" y="0px" enable-background="new 0 0 24 24" xml:space="preserve"><path fill="currentColor" d="M16.6,8.1l1.2-1.2l5.1,5.1l-5.1,5.1l-1.2-1.2l3-3H8.7v-1.8h10.9L16.6,8.1z M3.8,19.9h9.1 c1,0,1.8-0.8,1.8-1.8v-1.4h-1.8v1.4H3.8V5.8h9.1v1.4h1.8V5.8c0-1-0.8-1.8-1.8-1.8H3.8C2.8,4,2,4.8,2,5.8v12.4 C2,19.1,2.8,19.9,3.8,19.9z"></path></svg>
+        //   </div>
+        //   <div style="box-sizing: border-box;
+        //   display: flex;
+        //   flex: 1 1 auto;
+        //   align-items: center;
+        //   height: 100%;
+        //   overflow: hidden;padding-right: 30px; color:#ea0038;">Exit group</div>
+        //   </div>
+        //   `;
+        // }
         
       }
 

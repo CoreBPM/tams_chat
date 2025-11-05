@@ -157,21 +157,22 @@ export default class ChatContactList {
     this.$chat_contacts_container = $(document.createElement("div")).addClass(
       "chat-contacts-container"
     );
-    if (this.new_group == 0) {
-      const new_group_html = `    
-      <div class='chat-profile-info'>
-          <div class='chat-name'>
-            New group
-          </div>
-        </div>
-      `;
-      this.$chat_contacts_container.html(
-        `<div class="new-group" style="align-items:center">${frappe.get_avatar(
-          "avatar-medium",
-          "G"
-        )} ${new_group_html}</div>`
-      );
-    }
+    // TODO: hide or remove this button "New group"
+    // if (this.new_group == 0) {
+    //   const new_group_html = `    
+    //   <div class='chat-profile-info'>
+    //       <div class='chat-name'>
+    //         New group
+    //       </div>
+    //     </div>
+    //   `;
+    //   this.$chat_contacts_container.html(
+    //     `<div class="new-group" style="align-items:center">${frappe.get_avatar(
+    //       "avatar-medium",
+    //       "G"
+    //     )} ${new_group_html}</div>`
+    //   );
+    // }
 
     this.chat_contacts = [];
     
