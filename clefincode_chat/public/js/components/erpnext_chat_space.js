@@ -533,7 +533,8 @@ export default class ChatSpace {
           this.$chat_actions.append(
             `<div style="margin-bottom: 10px;">This is a closed channel. To start chatting, create a new one or reopen this one.</div>`
           );
-          $btnWrapper.append($reopenBtn);
+          // TODO: hide or remove button "Reopen"
+          // $btnWrapper.append($reopenBtn);
           if (this.profile.room_type != "Group") {
             $btnWrapper.append($createNewBtn);
           }
