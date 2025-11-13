@@ -222,22 +222,23 @@ export default class ChatInfo {
         `;
         }
 
-        if (me.chat_space.profile.is_removed != 1) {
-          if (me.is_admin == 1) {
-            group_sections += `<div class="deletefromgroup" style="cursor: pointer;${
-              me.user_email == this.email ? "display:none" : "display:block"
-            }" id="${this.email}" data-name="${
-              this.name
-            }"><?xml version="1.0" encoding="iso-8859-1"?>
-          <svg height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-             viewBox="0 0 496.158 496.158" xml:space="preserve">
-          <path style="fill:#E04F5F;" d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082
-            c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z"/>
-          <path style="fill:#FFFFFF;" d="M383.546,206.286H112.612c-3.976,0-7.199,3.225-7.199,7.2v69.187c0,3.976,3.224,7.199,7.199,7.199
-            h270.934c3.976,0,7.199-3.224,7.199-7.199v-69.187C390.745,209.511,387.521,206.286,383.546,206.286z"/>
-          </svg></div>`;
-          }
-        }
+        // TODO: hide or remove this button "icon delete member"
+        // if (me.chat_space.profile.is_removed != 1) {
+        //   if (me.is_admin == 1) {
+        //     group_sections += `<div class="deletefromgroup" style="cursor: pointer;${
+        //       me.user_email == this.email ? "display:none" : "display:block"
+        //     }" id="${this.email}" data-name="${
+        //       this.name
+        //     }"><?xml version="1.0" encoding="iso-8859-1"?>
+        //   <svg height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        //      viewBox="0 0 496.158 496.158" xml:space="preserve">
+        //   <path style="fill:#E04F5F;" d="M0,248.085C0,111.063,111.069,0.003,248.075,0.003c137.013,0,248.083,111.061,248.083,248.082
+        //     c0,137.002-111.07,248.07-248.083,248.07C111.069,496.155,0,385.087,0,248.085z"/>
+        //   <path style="fill:#FFFFFF;" d="M383.546,206.286H112.612c-3.976,0-7.199,3.225-7.199,7.2v69.187c0,3.976,3.224,7.199,7.199,7.199
+        //     h270.934c3.976,0,7.199-3.224,7.199-7.199v-69.187C390.745,209.511,387.521,206.286,383.546,206.286z"/>
+        //   </svg></div>`;
+        //   }
+        // }
 
         group_sections += `</div>`;
       });
