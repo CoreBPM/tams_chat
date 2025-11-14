@@ -137,7 +137,8 @@ export default class ChatInfo {
     const isClosed = (this.chat_status || this.chat_space.chat_status) === "Closed";
     // TODO: hide or remove this button "Close Channel"
     const media_links_docs_section = `  
-  <div class="p-4 chat-info-section openMedia"  style="cursor: pointer;">Media, links and docs</div>
+    <!-- TODO: hide media section -->
+  <!-- <div class="p-4 chat-info-section openMedia"  style="cursor: pointer;">Media, links and docs</div> -->
   <div class=" chat-media" 
   style="position: absolute;
   top: 0;
@@ -493,7 +494,7 @@ export default class ChatInfo {
         const isClosed = (this.chat_status || this.chat_space.chat_status) === "Closed";
 
           guest_sections += `
-            <div class="p-4 chat-info-section openMedia" style="cursor: pointer;">Media, links and docs</div>
+            <!-- <div class="p-4 chat-info-section openMedia" style="cursor: pointer;">Media, links and docs</div> -->
             <div class="p-4 chat-info-section" style="display:flex; justify-content:center;">
               <button class="btn btn-sm btn-danger close-channel" ${isClosed ? "disabled" : ""}>
                 ${isClosed ? "Closed" : "Close Channel"}
