@@ -615,7 +615,8 @@ export default class ChatSpace {
 
     const chat_actions_html = `
       <div class="message-section">
-          ${this.profile.room_type != "Guest" ? file_attachment : ``}
+          <!-- TODO: hide icon attachment -->
+          <!-- ${this.profile.room_type != "Guest" ? file_attachment : ``} -->
           ${this.type_message_input.wrapper}
           <span class='message-send-button' style="display:none">
               <svg xmlns="http://www.w3.org/2000/svg" width="1.1rem" height="1.1rem" viewBox="0 0 24 24">
