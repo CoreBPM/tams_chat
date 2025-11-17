@@ -257,6 +257,8 @@ frappe.ErpnextChat = class {
               $("header.navbar > .container > .navbar-collapse > ul").prepend(
                 navbar_icon_html
               );
+
+              this.setup_events();
             }
           } else {
             $(".chat-navbar-icon").remove();
@@ -270,7 +272,7 @@ frappe.ErpnextChat = class {
     //     navbar_icon_html
     //   );
     // }
-    this.setup_events();
+    // this.setup_events();
   }
 
   async create_chatbot() {
