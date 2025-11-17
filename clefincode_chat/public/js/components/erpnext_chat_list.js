@@ -153,7 +153,7 @@ export default class ChatList {
 			<div class='input-group'>
 				<input class='form-control chat-search-box'
 				type='search' 
-				placeholder='${__("Search conversations")}'>	
+				placeholder='${__("Search names")}'>
 				<span class='search-icon'>
 					${frappe.utils.icon("search", "sm")}
 				</span>
