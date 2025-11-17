@@ -236,18 +236,40 @@ frappe.ErpnextChat = class {
     );
 
     const navbar_icon_html = `
-        <li class='nav-item dropdown dropdown-notifications 
-        dropdown-mobile chat-navbar-icon' title="Show Chats" >
-          <img title="Show Chats" src="/assets/clefincode_chat/icons/clefincode_chat.svg" width="25px" height="25px">
-        <span class="badge" id="chat-notification-count"></span>
-        </li>
+    <li class='nav-item dropdown dropdown-notifications
+    dropdown-mobile chat-navbar-icon' title="Show Chats" >
+    <img title="Show Chats" src="/assets/clefincode_chat/icons/clefincode_chat.svg" width="25px" height="25px">
+    <span class="badge" id="chat-notification-count"></span>
+    </li>
     `;
 
-    if (this.is_desk === true) {
-      $("header.navbar > .container > .navbar-collapse > ul").prepend(
-        navbar_icon_html
-      );
-    }
+    // TODO: check TAMS Settings -> enable_chat
+    frappe.call({
+      method: "frappe.client.get",
+      args: {
+        doctype: "TAMS Settings",
+        name: "TAMS Settings"
+      },
+      callback: (res) => {
+        if (res.message && res.message.enable_chat) {
+          if (res.message.enable_chat === 1) {
+            if (this.is_desk === true) {
+              $("header.navbar > .container > .navbar-collapse > ul").prepend(
+                navbar_icon_html
+              );
+            }
+          } else {
+            $(".chat-navbar-icon").remove();
+          }
+        }
+      }
+    });
+
+    // if (this.is_desk === true) {
+    //   $("header.navbar > .container > .navbar-collapse > ul").prepend(
+    //     navbar_icon_html
+    //   );
+    // }
     this.setup_events();
   }
 
